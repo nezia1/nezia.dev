@@ -36,7 +36,7 @@ relativeURLs 		 = true
     text = "github"
     
 [[params.mainMenu]]
-    link = "resume"
+    link = "resume.pdf"
     text = "resume"
 
 [imaging]
