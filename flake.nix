@@ -10,6 +10,7 @@
         packages = [
           pkgs.go_1_22
           pkgs.hugo
+          pkgs.zola
           pkgs.nodejs
         ];
       };

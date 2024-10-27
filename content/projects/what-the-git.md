@@ -1,12 +1,11 @@
----
-title: "What the Git"
-draft: false
-tags: 
- - web
- - react
- - front-end
----
-What the Git is a web application built in React using Typescript, which allows you to type git commands and have it explained to you. 
++++
+title = "What the Git"
+draft = false
+[extra]
+no_header = true
++++
+
+What the Git is a web application built in React using Typescript, which allows you to type git commands and have it explained to you.
 
 You also have access to articles on certain keywords that explain a bit more what that git nomenclature means.
 
