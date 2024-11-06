@@ -34,7 +34,7 @@
               hugo mod vendor
             '';
             installPhase = ''
-              cp -r _vendor $out
+              mv _vendor $out
             '';
             outputHashMode = "recursive";
             outputHash = "sha256-HTIbu1M3w8escODTPy+c0uNEZNvBbiXAraCsqtyvBiA=";
@@ -47,7 +47,7 @@
             npmDepsHash = "sha256-qm12Sv7y0jggO7ygHqEmqLzBzmM1UIlDgo/y31hjBvA=";
 
             installPhase = ''
-              cp -r node_modules $out/
+              mv node_modules $out/
             '';
             dontBuild = true;
           };
