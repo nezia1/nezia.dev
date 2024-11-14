@@ -1,6 +1,10 @@
 {
   description = "nezia's portfolio website";
-  outputs = {nixpkgs, ...}: let
+  outputs = {
+    nixpkgs,
+    sam-zola,
+    ...
+  }: let
     eachSystem = f: nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed f;
   in {
     devShells = eachSystem (system: let
@@ -18,51 +22,27 @@
     packages = eachSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
     in {
-      default = pkgs.stdenv.mkDerivation (finalAttrs: {
-        pname = "portfolio";
-        name = finalAttrs.pname;
+      default = pkgs.stdenv.mkDerivation {
+        name = "nezia.dev";
         src = ./.;
         nativeBuildInputs = [
-          pkgs.go
-          pkgs.hugo
-          pkgs.nodejs
+          pkgs.zola
         ];
-        buildPhase = let
-          hugoVendor = pkgs.stdenv.mkDerivation {
-            name = "${finalAttrs.pname}-hugoVendor";
-            inherit (finalAttrs) src nativeBuildInputs;
-            buildPhase = ''
-              hugo mod vendor
-            '';
-            installPhase = ''
-              cp -r _vendor $out
-            '';
-            outputHashMode = "recursive";
-            outputHash = "sha256-HTIbu1M3w8escODTPy+c0uNEZNvBbiXAraCsqtyvBiA=";
-          };
-
-          npmDeps = pkgs.buildNpmPackage {
-            name = "${finalAttrs.pname}-npmDeps";
-            inherit (finalAttrs) src nativeBuildInputs;
-
-            npmDepsHash = "sha256-qm12Sv7y0jggO7ygHqEmqLzBzmM1UIlDgo/y31hjBvA=";
-
-            installPhase = ''
-              cp -r node_modules $out/
-            '';
-            dontBuild = true;
-          };
-        in ''
-          cp -r ${hugoVendor} _vendor
-          cp -r ${npmDeps} node_modules
-          hugo --minify -d $out
+        configurePhase = ''
+          mkdir -p themes/sam
+          cp --no-preserve=mode -r ${sam-zola}/* themes/sam
         '';
-        dontInstall = true;
+        buildPhase = "zola build";
+        installPhase = "cp -r public $out";
         dontFixup = true;
-      });
+      };
     });
   };
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/07518c851b0f12351d7709274bbbd4ecc1f089c7";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    sam-zola = {
+      url = "github:janbaudisch/zola-sam";
+      flake = false;
+    };
   };
 }

@@ -2,23 +2,40 @@
   "nodes": {
     "nixpkgs": {
       "locked": {
-        "lastModified": 1711404521,
-        "narHash": "sha256-cYhDZ3RYLiXAi4LQDGuQjjDDbtP00Wd/Vjal/jWyTuA=",
+        "lastModified": 1731531548,
+        "narHash": "sha256-sz8/v17enkYmfpgeeuyzniGJU0QQBfmAjlemAUYhfy8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "07518c851b0f12351d7709274bbbd4ecc1f089c7",
+        "rev": "24f0d4acd634792badd6470134c387a3b039dace",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
-        "rev": "07518c851b0f12351d7709274bbbd4ecc1f089c7",
         "type": "github"
       }
     },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "sam-zola": "sam-zola"
+      }
+    },
+    "sam-zola": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1612976548,
+        "narHash": "sha256-ut1NiSM0GooRrHFikvuTCLU2XhpplhFQejFSbTa9ZdU=",
+        "owner": "janbaudisch",
+        "repo": "zola-sam",
+        "rev": "890b51b4105fd2e63f5e417e5cb63b8e25d5721f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "janbaudisch",
+        "repo": "zola-sam",
+        "type": "github"
       }
     }
   },
