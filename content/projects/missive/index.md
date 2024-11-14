@@ -1,7 +1,8 @@
 +++
 title = 'Missive'
-date = 2024-06-30T13:02:58+02:00
 draft = false
+[extra]
+no_header = true
 +++
 
 Missive is a real-time, end-to-end encrypted chat application implementing the Signal protocol that was built as my 2024's technicien ES diploma's work.
@@ -10,4 +11,4 @@ It was implemented using Flutter for the application, as it allows for quick dev
 
 You can find the link to the GitHub repository [here](https://github.com/nezia1/missive), alongside the [documentation](https://missive.nezia.dev) that's been written, in French.
 
-![Missive screenshot : conversation between two users](/images/conversation-read.png?width=900)
+![Missive screenshot : conversation between two users](conversation-read.png?width=900)

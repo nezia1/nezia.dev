@@ -1,12 +1,8 @@
----
-title: "Spotify Stats"
-draft: false
-images:
-tags:
-  - web
-  - vue
-  - front-end
----
++++
+title = "Spotify Stats"
+[extra]
+no_header = true
++++
 
 Spotify Stats is a web application powered by Vue, running strictly in the front-end, who allows the user to find out statistics about their Spotify usage. It shows the most played tracks and artists in the last three months, and the most played of all time.
 
