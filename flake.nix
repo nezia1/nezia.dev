@@ -17,7 +17,6 @@
         shellHook = ''
           mkdir -p themes
           ln -sn "${sam-zola}" "themes/${themeName}"
-          ln -sn $(find ${resume.packages.${pkgs.system}.default} -name "*.pdf") static/resume.pdf
         '';
       };
     });
