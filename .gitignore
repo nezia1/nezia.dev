@@ -1,5 +1,4 @@
 .direnv
-public/
 resources/
 themes/
-static/resume.pdf
+result
