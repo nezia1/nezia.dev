@@ -6,17 +6,19 @@
     ...
   }: let
     eachSystem = f: nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed f;
+    themeName = (builtins.fromTOML (builtins.readFile "${sam-zola}/theme.toml")).name;
   in {
     devShells = eachSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       default = pkgs.mkShell {
         packages = [
-          pkgs.go_1_22
-          pkgs.hugo
           pkgs.zola
-          pkgs.nodejs
         ];
+        shellHook = ''
+          mkdir -p themes
+          ln -sn "${sam-zola}" "themes/${themeName}";
+        '';
       };
     });
     packages = eachSystem (system: let
@@ -25,16 +27,13 @@
       default = pkgs.stdenv.mkDerivation {
         name = "nezia.dev";
         src = ./.;
-        nativeBuildInputs = [
-          pkgs.zola
-        ];
+        nativeBuildInputs = [pkgs.zola];
         configurePhase = ''
-          mkdir -p themes/sam
-          cp --no-preserve=mode -r ${sam-zola}/* themes/sam
+          mkdir -p "themes/${themeName}"
+          cp -r ${sam-zola}/* "themes/${sam-zola}"
         '';
         buildPhase = "zola build";
         installPhase = "cp -r public $out";
-        dontFixup = true;
       };
     });
   };
