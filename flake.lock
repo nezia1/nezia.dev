@@ -16,9 +16,30 @@
         "type": "github"
       }
     },
+    "resume": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1736107608,
+        "narHash": "sha256-3Fjl0Kq0vPNmVW6ah6iwoXEPn2m14EInLqAoYT/F5Js=",
+        "owner": "nezia1",
+        "repo": "resume",
+        "rev": "bdb17114ce001a1e18c39a0e931c6e773fd983cb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nezia1",
+        "repo": "resume",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "nixpkgs": "nixpkgs",
+        "resume": "resume",
         "sam-zola": "sam-zola"
       }
     },
