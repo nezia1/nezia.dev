@@ -30,7 +30,7 @@
         nativeBuildInputs = [pkgs.zola];
         configurePhase = ''
           mkdir -p "themes/${themeName}"
-          cp -r ${sam-zola}/* "themes/${sam-zola}"
+          cp -r ${sam-zola}/* "themes/${themeName}"
         '';
         buildPhase = "zola build";
         installPhase = "cp -r public $out";
