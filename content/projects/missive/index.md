@@ -1,8 +1,9 @@
 +++
 title = 'Missive'
-draft = false
+description = "A real-time, end-to-end encrypted chat application. "
+weight = 1
 [extra]
-no_header = true
+local_image = "img/missive_logo.svg"
 +++
 
 Missive is a real-time, end-to-end encrypted chat application implementing the Signal protocol that was built as my 2024's technicien ES diploma's work.

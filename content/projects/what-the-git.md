@@ -1,8 +1,10 @@
 +++
 title = "What the Git"
-draft = false
+description = "A web application that allows you to enter a git command and get a simple explanation of what it does."
+weight = 2
+
 [extra]
-no_header = true
+local_image = "img/git_logo.svg"
 +++
 
 What the Git is a web application built in React using Typescript, which allows you to type git commands and have it explained to you.

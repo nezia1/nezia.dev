@@ -40,22 +40,22 @@
       "inputs": {
         "nixpkgs": "nixpkgs",
         "resume": "resume",
-        "sam-zola": "sam-zola"
+        "tabi": "tabi"
       }
     },
-    "sam-zola": {
+    "tabi": {
       "flake": false,
       "locked": {
-        "lastModified": 1612976548,
-        "narHash": "sha256-ut1NiSM0GooRrHFikvuTCLU2XhpplhFQejFSbTa9ZdU=",
-        "owner": "janbaudisch",
-        "repo": "zola-sam",
-        "rev": "890b51b4105fd2e63f5e417e5cb63b8e25d5721f",
+        "lastModified": 1735987152,
+        "narHash": "sha256-fVfwNGlSJkfg93YIkRion1HiYANcDBywr4g8x35e1+k=",
+        "owner": "welpo",
+        "repo": "tabi",
+        "rev": "de6fa58fe3b276c12f16f9ddc1cf9f93269161f9",
         "type": "github"
       },
       "original": {
-        "owner": "janbaudisch",
-        "repo": "zola-sam",
+        "owner": "welpo",
+        "repo": "tabi",
         "type": "github"
       }
     }

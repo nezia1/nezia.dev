@@ -2,12 +2,12 @@
   description = "nezia's portfolio website";
   outputs = {
     nixpkgs,
-    sam-zola,
+    tabi,
     resume,
     ...
   }: let
     eachSystem = f: nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed f;
-    themeName = (builtins.fromTOML (builtins.readFile "${sam-zola}/theme.toml")).name;
+    themeName = (builtins.fromTOML (builtins.readFile "${tabi}/theme.toml")).name;
   in {
     devShells = eachSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
@@ -16,7 +16,8 @@
         packages = [pkgs.zola];
         shellHook = ''
           mkdir -p themes
-          ln -sn "${sam-zola}" "themes/${themeName}"
+          ln -sn "${tabi}" "themes/${themeName}"
+          cp $(find ${resume.packages.${pkgs.system}.default} -name "*.pdf") static/resume.pdf
         '';
       };
     });
@@ -29,7 +30,7 @@
         nativeBuildInputs = [pkgs.zola];
         configurePhase = ''
           mkdir -p "themes/${themeName}"
-          cp -r ${sam-zola}/* "themes/${themeName}"
+          cp -r ${tabi}/* "themes/${themeName}"
           cp $(find ${resume.packages.${pkgs.system}.default} -name "*.pdf") static/resume.pdf
         '';
         buildPhase = "zola build";
@@ -39,8 +40,8 @@
   };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    sam-zola = {
-      url = "github:janbaudisch/zola-sam";
+    tabi = {
+      url = "github:welpo/tabi";
       flake = false;
     };
     resume = {
