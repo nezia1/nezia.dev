@@ -12,6 +12,7 @@ hard_link_static = true
 highlight_code = true
 
 [extra]
+skin = "lavender"
 favicon_emoji = "💻"
 encode_plaintext_email = true
 email = "anthony@nezia.dev"
