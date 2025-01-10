@@ -17,6 +17,7 @@
         shellHook = ''
           mkdir -p themes
           ln -sn "${tabi}" "themes/${themeName}"
+          cp $(find ${resume.packages.${pkgs.system}.default} -name "*.pdf") static/resume.pdf
         '';
       };
     });
