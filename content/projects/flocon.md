@@ -4,7 +4,7 @@ description = "My personal NixOS configuration, managing my systems"
 weight = 1
 
 [extra]
-local_image = "img/nix_logo.svg"
+local_image = "img/nix-snowflake.svg"
 +++
 
 Flocon is my personal NixOS configuration, which I use to manage all of my systems, from both of my workstations to my server. It's a flake based configuration, which standardizes inputshav/outputs (i.e. dependencies and configurations respectively), and allows me to version everything nicely in a `flake.lock` file, akin to something like npm.
